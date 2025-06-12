@@ -191,16 +191,16 @@
             margin-bottom: 1.5rem;
         }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #2d5016;
-            font-weight: bold;
+        .form-row {
+            display: flex;
+            gap: 1rem;
         }
 
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
+        .col {
+            flex: 1;
+        }
+
+        .form-control {
             width: 100%;
             padding: 1rem;
             border: 2px solid #e0e0e0;
@@ -209,11 +209,41 @@
             transition: border-color 0.3s;
         }
 
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
+        .form-control:focus {
             outline: none;
             border-color: #4a7c1a;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-lg {
+            padding: 1.2rem 2.5rem;
+            font-size: 1.2rem;
+        }
+
+        .btn-dark {
+            background: #2d5016;
+            color: white;
+        }
+
+        .btn-dark:hover {
+            background: #4a7c1a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(45, 80, 22, 0.3);
+        }
+
+        .btn-block {
+            width: 100%;
         }
 
         .contact-info {
@@ -301,6 +331,11 @@
             .highlight {
                 text-align: center;
             }
+
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
         }
 
         .success-message {
@@ -381,26 +416,24 @@
         <section id="book" class="section">
             <div class="container">
                 <h2 class="section-title">Book Your Appointment</h2>
-                <form class="booking-form" action="https://formsubmit.co/sandblawncare5@gmail.com" method="POST">
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" name="phone" placeholder="Phone Number" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="address" placeholder="Service Address" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" placeholder="What do you need done?" required rows="4"></textarea>
-                    </div>
-                    <input type="hidden" name="_next" value="https://sandblawncare.store/thank-you.html">
-                    <input type="hidden" name="_captcha" value="false">
-                    <button type="submit" class="cta-button" style="width: 100%;">Book Appointment</button>
-                </form>
+                <div class="booking-form">
+                    <form target="_blank" action="https://formsubmit.co/sandblawncare5@gmail.com" method="POST">
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col">
+                                    <input type="text" name="name" class="form-control" placeholder="Full Name" required>
+                                </div>
+                                <div class="col">
+                                    <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" class="form-control" name="message" rows="10" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-lg btn-dark btn-block">Submit Form</button>
+                    </form>
+                </div>
             </div>
         </section>
 
@@ -485,5 +518,7 @@
             navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
         });
     </script>
+</body>
+</html>
 </body>
 </html>
