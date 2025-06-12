@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S&B Lawncare - Affordable Lawn Care You Can Count On</title>
     <style>
-       body {
-  margin: 0;
-}
+        * {
+            margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
@@ -479,8 +478,6 @@
                 }
             });
         });
-
-
 
         // Mobile menu toggle (basic functionality)
         document.querySelector('.mobile-menu').addEventListener('click', function() {
